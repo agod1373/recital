@@ -34,8 +34,19 @@ export default function Signup() {
         setLoading(false);
     }
 
-    const googleSubmit = async () => {
-        
+    const googleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+
+        try {
+            setError('');
+            await googleSignup();
+            history.push('/dash');
+        } catch (error) {
+            setError('sign up with google failed')
+        }
+
+        setLoading(false);
     }
 
     return (
@@ -44,10 +55,10 @@ export default function Signup() {
                 <Card.Body>
                     <h2 style={{marginBottom: '15px'}}>sign up</h2>
                     {loading ? 
-                        <div className="w-100"><Spinner className="mx-auto" variant="info" animation="border" /></div>
+                        <div className="w-100" style={{height: '300px'}}><Spinner style={{marginTop: '120px'}} className="mx-auto" variant="info" animation="border" /></div>
                         :
                         <div>
-                            <GoogleButton style={{marginBottom: '10px'}} className="mx-auto"/>
+                            <GoogleButton onClick={googleSubmit} style={{marginBottom: '10px'}} className="mx-auto"/>
                             {error && <Alert variant="danger">{error}</Alert>}
                             <Form onSubmit={handleSubmit} className="d-flex flex-column text-left" >
                                 <Form.Group id="email">
