@@ -1,18 +1,23 @@
-.home-header {
-    background-color: #282c34;
+@import '../../variables.scss';
+
+.standard-background {
+    background-color: $primary-color;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-}
-  
-.home-link {
-    color: #61dafb; 
+    font-size: calc(10px + 1.5vmin);
 }
 
-.home-link:hover {
-    color: #61dafb; 
+.standard-header {
+    color: white
+}
+  
+.standard-link {
+    color: $link-color; 
+}
+
+.standard-link:hover {
+    color: $link-color; 
 }

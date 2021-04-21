@@ -1,0 +1,9 @@
+$primary-color: #282c34;
+$header-color: #FB618D;
+$link-color: #61dafb;
+
+$theme-colors: (
+    "info": $header-color
+);
+
+@import "~bootstrap/scss/bootstrap";
