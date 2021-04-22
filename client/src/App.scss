@@ -28,6 +28,15 @@ h1, h2, h3, h4, h5, h6 {
   font-size: calc(8px + 1.5vmin);
 }
 
+.standard-background-top {
+  background-color: $primary-color;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(8px + 1.5vmin);
+}
+
 .standard-header {
   color: white
 }
@@ -38,4 +47,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .standard-link:hover {
   color: $link-color; 
+}
+
+#standard-color {
+  color: $header-color !important;
 }

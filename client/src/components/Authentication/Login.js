@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import GoogleButton from 'react-google-button';
-import { Form, Container, Button, Card, Alert, Spinner } from 'react-bootstrap';
+import { Form, Button, Card, Alert, Spinner } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext.js';
 import './Authentication.scss';
 
@@ -41,11 +41,7 @@ export default function Login() {
 
     return (
         <div className="standard-background">
-        <Container
-            className="d-flex align-items-center justify-content-center"
-            style={{ minHeight: "100vh" }}
-        >
-            <div className="w-100" style={{ maxWidth: '400px'}}>
+            <div className="w-100 push-up-10" style={{ maxWidth: '350px'}}>
             <Card>   
                 <Card.Body>     
                     <h2 id="primary-color" className="text-center mb-4">log in</h2>
@@ -69,15 +65,14 @@ export default function Login() {
                                 <Button disabled={loading} id="loginbutton" className="w-100 mx-auto" variant="warning" type="submit">log in</Button>
                             </Form>
                             <div className="w-100 text-center mt-3">
-                                <Link id="forgot-link" to="/forgot-password">forgot password?</Link>
+                                <Link className="standard-link" to="/forgot-password">forgot password?</Link>
                             </div>
                         </div>
                         }
                 </Card.Body>
             </Card>
-            <h4 style={{marginTop: '10px'}}>don't have an account? <Link id="standard-link" to="/signup">sign up.</Link></h4>
+            <h4 style={{marginTop: '10px'}}>don't have an account? <Link className="standard-link" to="/signup">sign up.</Link></h4>
             </div>
-        </Container>
         </div>
     )
 }

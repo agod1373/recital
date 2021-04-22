@@ -51,7 +51,8 @@ export default function Signup() {
 
     return (
         <div className="standard-background">
-            <Card className="w-100" style={{ maxWidth: '400px'}}>
+            <div className="push-up-10">
+            <Card className="w-100" style={{ maxWidth: '350px'}}>
                 <Card.Body>
                     <h2 style={{marginBottom: '15px'}}>sign up</h2>
                     {loading ? 
@@ -73,13 +74,14 @@ export default function Signup() {
                                     <Form.Label>confirm password</Form.Label>
                                     <Form.Control type="password" ref={passwordConfirmRef} required placeholder={'enter a matching password'}></Form.Control>
                                 </Form.Group>
-                                <Button disabled={loading} className="w-100" variant="info" type="submit">log in</Button>
+                                <Button disabled={loading} className="w-100" variant="warning" type="submit">sign up</Button>
                             </Form>
                         </div>
                     }
                 </Card.Body>
             </Card>
             <h4 style={{marginTop: '10px'}}>already have an account? <Link className="standard-link" to="/login">log in</Link></h4>
+            </div>
         </div>
     )
 }

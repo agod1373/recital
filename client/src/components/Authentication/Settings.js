@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react'
 import { useHistory } from 'react-router-dom';
-import { Card, Container, Form, Button, Alert, Modal } from 'react-bootstrap'
+import { Card, Form, Button, Alert, Modal } from 'react-bootstrap'
 import { useAuth } from '../../contexts/AuthContext.js';
+import Header from '../Header/Header.js';
 import './Authentication.scss';
 import app from '../../firebase.js';
 
@@ -93,7 +94,7 @@ export default function Settings() {
         setError('');
         setSuccess('');
         if (currentUser.providerData[0].providerId !== 'password') {
-            return setError('cannot change password for google sign in');
+            return setError('cannot change email for google sign in');
         }
         if (editEmail === false) {
             setEditPassword(false);
@@ -136,7 +137,7 @@ export default function Settings() {
         setError('');
         setSuccess('');
         if (currentUser.providerData[0].providerId !== 'password') {
-            return setError('cannot change email for google sign in');
+            return setError('cannot change password for google sign in');
         }
         if (editPassword === false) {
             setEditEmail(false);
@@ -210,7 +211,10 @@ export default function Settings() {
     }
 
     return (
+        <div className="standard-background-top">
+            <Header />
         <div className="standard-background">
+            <div className="push-up-10">
             <Card>
                 <Card.Body>
                     <h2 id="primary-color" className="text-center mb-4">settings</h2>
@@ -254,13 +258,13 @@ export default function Settings() {
                                         <Form.Label>final confirmation</Form.Label>
                                         <Form.Control type="text" ref={confirmRef} required placeHolder='type confirm into this box'></Form.Control>
                                     </Form.Group>
-                                    <Button onClick={(e) => reauth(e)} variant="danger">delete account</Button>
+                                    <Button onClick={(e) => reauth(e)} variant="danger" type="submit">delete account</Button>
                                 </Form>
                             </Modal.Body>
                         </Modal>
                     </div>
                     {editDisplayName ?
-                        <Form onSubmit={handleDisplayName} className="d-flex flex-column" >
+                        <Form onSubmit={handleDisplayName} className="d-flex flex-column text-left" >
                             <Form.Group id="username">
                                 <Form.Label>new username</Form.Label>
                                 <Form.Control type="username" ref={displayNameRef} required placeHolder='enter new username here'></Form.Control>
@@ -271,7 +275,7 @@ export default function Settings() {
                         <span></span>
                     }
                     {editEmail ?
-                        <Form onSubmit={handleEmail} className="d-flex flex-column" >
+                        <Form onSubmit={handleEmail} className="d-flex flex-column text-left" >
                             <Form.Group id="email">
                                 <Form.Label>new email</Form.Label>
                                 <Form.Control type="email" ref={emailRef} required placeHolder='enter new email here'></Form.Control>
@@ -282,7 +286,7 @@ export default function Settings() {
                         <span></span>
                     }
                     {editPassword ?
-                        <Form onSubmit={handlePassword} className="d-flex flex-column" >
+                        <Form onSubmit={handlePassword} className="d-flex flex-column text-left" >
                             <Form.Group id="password">
                                 <Form.Label>new password</Form.Label>
                                 <Form.Control type="password" ref={passwordRef} required placeHolder='enter new password here'></Form.Control>
@@ -301,6 +305,8 @@ export default function Settings() {
             <div className="text-center">
                 <h3 onClick={handleLogout} id="signup-link">log out</h3>
             </div>
+            </div>
+        </div>
         </div>
     )
 }

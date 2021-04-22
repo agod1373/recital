@@ -5,6 +5,7 @@ import Home from './components/Home/Home.js';
 import Login from './components/Authentication/Login.js';
 import Signup from './components/Authentication/Signup.js';
 import Dash from './components/Dash/Dash.js';
+import Add from './components/Add/Add.js';
 import Settings from './components/Authentication/Settings.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
@@ -18,6 +19,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <PrivateRoute path="/dash" component={Dash} />
+          <PrivateRoute path="/add" component={Add} />
           <PrivateRoute path="/settings" component={Settings} />
         </Switch>
       </Router>
