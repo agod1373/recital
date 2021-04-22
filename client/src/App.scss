@@ -17,3 +17,25 @@ body {
 h1, h2, h3, h4, h5, h6 {
   color: $header-color;
 }
+
+.standard-background {
+  background-color: $primary-color;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(8px + 1.5vmin);
+}
+
+.standard-header {
+  color: white
+}
+
+.standard-link {
+  color: $link-color; 
+}
+
+.standard-link:hover {
+  color: $link-color; 
+}

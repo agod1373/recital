@@ -29,6 +29,38 @@ export default function AuthProvider( {children }) {
         return auth.signOut();
     }
 
+    function resetPassword(email) {
+        return auth.sendPasswordResetEmail(email);
+    }
+
+    function updateEmail(email) {
+        return currentUser.updateEmail(email);
+    }
+
+    function updateDisplayName(newDisplayName) {
+        return currentUser.updateProfile({
+            displayName: newDisplayName
+        });
+    }
+
+    function updatePassword(password) {
+        return currentUser.updatePassword(password)
+    }
+
+    function updatePhotoURL(url) {
+        return currentUser.updateProfile({
+            photoURL: url
+        });
+    }
+
+    function deleteUser() {
+        return currentUser.delete();
+    }
+
+    function reauthenticate(credential) {
+        return currentUser.reauthenticateWithCredential(credential);
+    }
+
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
             setCurrentUser(user);
@@ -43,7 +75,14 @@ export default function AuthProvider( {children }) {
         signup,
         googleSignup,
         login,
-        logout
+        logout,
+        resetPassword,
+        updateEmail,
+        updateDisplayName,
+        updatePassword,
+        updatePhotoURL,
+        deleteUser,
+        reauthenticate
     }
 
     return (
